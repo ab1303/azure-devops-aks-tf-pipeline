@@ -1,0 +1,24 @@
+# https://stacksimplify.com/azure-aks/create-aks-cluster-using-az-aks-cli/
+
+
+AKS_RESOURCE_GROUP=az-aks-stacksimplify
+AKS_REGION=australiaeast
+AKS_CLUSTER_NAME=aks-demo
+
+az aks get-credentials --resource-group  $AKS_RESOURCE_GROUP --name $AKS_CLUSTER_NAME
+
+# List Namespaces
+kubectl get namespaces
+kubectl get ns
+
+# List Pods from all namespaces
+kubectl get pods --all-namespaces
+
+# List all k8s objects from Cluster Control plane
+kubectl get all --all-namespaces
+
+
+
+Clean All AKS and Azure Resources
+
+az group delete --name $AKS_RESOURCE_GROUP --yes --no-wait
