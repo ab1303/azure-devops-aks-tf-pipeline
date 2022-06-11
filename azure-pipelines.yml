@@ -31,7 +31,7 @@ stages:
             displayName: Terraform Install
             inputs:
               terraformVersion: 'latest'
-          - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformCLI@0
+          - task: TerraformCLI@0
             displayName: Terraform Init
             inputs:
               command: 'init'
@@ -43,7 +43,7 @@ stages:
               backendAzureRmContainerName: 'aks-tf-devops'
               backendAzureRmKey: 'aks-base.tfstate'
               allowTelemetryCollection: false
-          - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformCLI@0
+          - task: TerraformCLI@0
             displayName: Terraform Validate
             inputs:
               command: 'validate'
