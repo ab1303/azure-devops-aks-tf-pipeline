@@ -11,6 +11,6 @@ resource "azurerm_resource_group" "aks_rg" {
 }
 
 resource random_pet random {
-  length    = 3
+  length    = 5
   prefix    = "aks"
 }
