@@ -27,11 +27,11 @@ stages:
               targetPath: '$(System.DefaultWorkingDirectory)/terraform-azure-devops/terraform-manifests'
               artifact: 'terraform-manifests-out'
               publishLocation: 'pipeline'         
-          - task: TerraformInstaller@0
+          - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
             displayName: Terraform Install
             inputs:
               terraformVersion: 'latest'
-          - task: TerraformCLI@0
+          - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformCLI@0
             displayName: Terraform Init
             inputs:
               command: 'init'
@@ -43,7 +43,7 @@ stages:
               backendAzureRmContainerName: 'aks-tf-devops'
               backendAzureRmKey: 'aks-base.tfstate'
               allowTelemetryCollection: false
-          - task: TerraformCLI@0
+          - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformCLI@0
             displayName: Terraform Validate
             inputs:
               command: 'validate'
