@@ -1,8 +1,8 @@
 data "azuread_client_config" "current" {}
 
-data "azuread_user" "z1192753" {
-  user_principal_name = "z1192753@wowcorp.com.au"
-}
+# data "azuread_user" "z1192753" {
+#   user_principal_name = "z1192753@wowcorp.com.au"
+# }
 
 
 resource "azuread_group" "aks_administrators" {
