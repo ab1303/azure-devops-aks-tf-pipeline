@@ -41,7 +41,7 @@ stages:
               backendAzureRmResourceGroupName: 'terraform-rg'
               backendAzureRmStorageAccountName: 'azpractisetfstorage1303'
               backendAzureRmContainerName: 'aks-tf-devops'
-              backendAzureRmKey: 'aks-$(DEV_ENVIRONMENT).tfstate'
+              backendAzureRmKey: 'aks-base.tfstate'
               allowTelemetryCollection: false
           - task: TerraformCLI@0
             displayName: Terraform Validate
@@ -74,8 +74,10 @@ stages:
                 inputs:
                   secureFile: 'aksdevsshkey.pub'
               - task: TerraformCLI@0
+                displayName: Terraform Init
                 inputs:
                   command: 'init'
+                  workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
                   backendType: 'azurerm'
                   backendServiceArm: 'AzureDevOpsSpn'
                   backendAzureRmResourceGroupName: 'terraform-rg'
@@ -84,6 +86,7 @@ stages:
                   backendAzureRmKey: 'aks-$(DEV_ENVIRONMENT).tfstate'
                   allowTelemetryCollection: false
               - task: TerraformCLI@0
+                displayName: Terraform Plan
                 inputs:
                   command: 'plan'
                   workingDirectory: '$(Pipeline.Workspace)/terraform-manifests-out'
