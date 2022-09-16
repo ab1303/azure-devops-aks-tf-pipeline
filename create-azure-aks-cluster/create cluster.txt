@@ -5,7 +5,11 @@ AKS_RESOURCE_GROUP=az-aks-stacksimplify
 AKS_REGION=australiaeast
 AKS_CLUSTER_NAME=aks-demo
 
+az account set -s "Azure-Practise"
+
 az aks get-credentials --resource-group  $AKS_RESOURCE_GROUP --name $AKS_CLUSTER_NAME
+
+
 
 # List Namespaces
 kubectl get namespaces

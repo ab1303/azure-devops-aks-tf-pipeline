@@ -11,3 +11,5 @@ resource "azuread_group" "aks_administrators" {
   owners                = [data.azuread_user.z1192753.object_id]
   security_enabled      = true
 }
+
+# TODO: add user "ashahid1@woolworths.com.au" to above azuread_group as a member

@@ -38,9 +38,6 @@ az aks get-credentials --resource-group terraform-aks-dev --name terraform-aks-d
 # List Kubernetes Nodes
 kubectl get nodes
 URL: https://microsoft.com/devicelogin
-Code: GUKJ3T9AC (sample)
-Username: taksadmin1@stacksimplifygmail.onmicrosoft.com  (Change your domain name)
-Password: @AKSadmin22
 
 
 # Error creating AD Group
